@@ -105,6 +105,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Style\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Material_List.xaml.cs">
@@ -148,7 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\img\" />
-    <Folder Include="Source\logo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Model1.Context.tt">
@@ -161,6 +164,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Source\logo\169fc5adf4631306e7e437b6b8ffa4ed.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

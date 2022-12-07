@@ -15,6 +15,20 @@
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Adress}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Тип материала" Binding="{Binding Material_Type}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Расстояние" Binding="{Binding Distance}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Delete" Content="Удалить" Click="Delete_Click" Style="{StaticResource ResourceKey=GridButton}"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Delete" Content="Изменить" Click="Change_Click" Style="{StaticResource ResourceKey=GridButton}"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

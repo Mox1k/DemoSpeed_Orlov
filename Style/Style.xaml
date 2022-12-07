@@ -1,0 +1,95 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="ListButton" TargetType="Button">
+        <Setter Property="Background" Value="LightGray"></Setter>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="FontFamily" Value="Tahoma"></Setter>
+        <Setter Property="FontSize" Value="8"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="Button">
+                    <Border Cursor="Hand" Background="{TemplateBinding Background}" MinWidth="60" Height="20" CornerRadius="5" Margin="5">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers >
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#e1e4ff"></Setter>
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="NavButton" TargetType="Button">
+        <Setter Property="Background" Value="White"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="FontFamily" Value="Tahoma"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="Button">
+                    <Border Cursor="Hand" Background="{TemplateBinding Background}" MinWidth="100" Height="40" CornerRadius="1" Margin="5">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers >
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="AliceBlue"></Setter>
+                <Setter Property="Foreground" Value="#000000"></Setter>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="InputName" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontFamily" Value="Tahoma"></Setter>
+        <Setter Property="MinWidth" Value="50px"></Setter>
+        <Setter Property="Margin" Value="5px"></Setter>
+        <Setter Property="Height" Value="25px"></Setter>
+    </Style>
+    <Style x:Key="InputBox" TargetType="TextBox">
+        <Setter Property="Height" Value="25px"></Setter>
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="MinWidth" Value="100px"></Setter>
+        <Setter Property="Width" Value="250px"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontFamily" Value="Tahoma"></Setter>
+    </Style>
+    <Style x:Key="PageTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="25"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="FontFamily" Value="Tahoma"></Setter>
+    </Style>
+
+    <Style x:Key="GridButton" TargetType="Button">
+        <Setter Property="Background" Value="White"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="FontFamily" Value="Tahoma"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="Button">
+                    <Border Cursor="Hand" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Height="30px">
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers >
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightBlue"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

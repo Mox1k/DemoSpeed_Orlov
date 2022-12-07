@@ -25,7 +25,18 @@ namespace DemoSpeed_Orlov.Pages
         public Storage_List()
         {
             InitializeComponent();
+
             DGridStorage.ItemsSource = ApplicationDbContext.GetContext().Storages.ToList();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Change_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -5,21 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoSpeed_Orlov"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="800">
+        Title="MainWindow" MinHeight="450" MinWidth="800" Width="1280" Height="720">
     <Grid>
         <Grid.ColumnDefinitions>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="75px"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Background="LightBlue" Text="Складской учёт" FontWeight="Bold" FontSize="20px"></TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <Button Height="20px" HorizontalContentAlignment="Stretch" Margin="5px" VerticalAlignment="Top" Click="Button_Click">sssssssssssssssssssssssssssss</Button>
-                <Button Height="20px" HorizontalContentAlignment="Stretch" Margin="5px" VerticalAlignment="Top">ssad</Button>
-            </StackPanel>
+        <StackPanel Orientation="Horizontal" Background="LightBlue" VerticalAlignment="Top" Height="75px" Grid.Row="0">
+            <Image Source="Source\logo\169fc5adf4631306e7e437b6b8ffa4ed.png" Margin="5px" RenderOptions.BitmapScalingMode="Linear" Height="55px" Width="55px" Grid.Column="0" Grid.Row="0"></Image>
+            <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="20" FontWeight="Bold"  Foreground="WhiteSmoke" >Складской учетик</TextBlock>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
+            <Button Command="{Binding GoToStorageList}" Style="{StaticResource ResourceKey=NavButton}" Click="Button_Click">Склады</Button>
+            <Button Command="{Binding GoToMaterialList}" Style="{StaticResource ResourceKey=NavButton}" Click="Button_Click_1">Материалы</Button>
+  
+        </StackPanel>
+
         <Frame x:Name="AllData" Grid.Row="1" NavigationUIVisibility="Hidden">
         </Frame>
     </Grid>

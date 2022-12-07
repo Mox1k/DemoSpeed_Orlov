@@ -28,5 +28,10 @@ namespace DemoSpeed_Orlov
         {
             AllData.NavigationService.Navigate(new Pages.Storage_List());
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AllData.NavigationService.Navigate(new Pages.Material_List());
+        }
     }
 }

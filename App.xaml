@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:DemoSpeed_Orlov"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Style\Style.xaml">
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
