@@ -1,0 +1,21 @@
+﻿<Page x:Class="DemoSpeed_Orlov.Pages.Storage_List"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoSpeed_Orlov.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Storage_List">
+
+    <Grid>
+        <DataGrid x:Name="DGridStorage" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер склада" Binding="{Binding Storage_Number}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Adress}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип материала" Binding="{Binding Material_Type}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Расстояние" Binding="{Binding Distance}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

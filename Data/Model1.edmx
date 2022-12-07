@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Building_Materials">
+          <Key>
+            <PropertyRef Name="Material_Number" />
+          </Key>
+          <Property Name="Material_Number" Type="int" Nullable="false" />
+          <Property Name="Material_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Measure_Unit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remains" Type="int" Nullable="false" />
+          <Property Name="Storage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="Storage_Number" />
+          </Key>
+          <Property Name="Storage_Number" Type="int" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Material_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Distance" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Building_Materials_Storage">
+          <End Role="Storage" Type="Self.Storage" Multiplicity="1" />
+          <End Role="Building_Materials" Type="Self.Building_Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storage">
+              <PropertyRef Name="Storage_Number" />
+            </Principal>
+            <Dependent Role="Building_Materials">
+              <PropertyRef Name="Storage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Building_Materials" EntityType="Self.Building_Materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Storage" EntityType="Self.Storage" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Building_Materials_Storage" Association="Self.FK_Building_Materials_Storage">
+            <End Role="Storage" EntitySet="Storage" />
+            <End Role="Building_Materials" EntitySet="Building_Materials" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Building_Materials">
+          <Key>
+            <PropertyRef Name="Material_Number" />
+          </Key>
+          <Property Name="Material_Number" Type="Int32" Nullable="false" />
+          <Property Name="Material_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Measure_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remains" Type="Int32" Nullable="false" />
+          <Property Name="Storage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Storage1" Relationship="Self.FK_Building_Materials_Storage" FromRole="Building_Materials" ToRole="Storage" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="Storage_Number" />
+          </Key>
+          <Property Name="Storage_Number" Type="Int32" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Material_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Distance" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Building_Materials" Relationship="Self.FK_Building_Materials_Storage" FromRole="Storage" ToRole="Building_Materials" />
+        </EntityType>
+        <Association Name="FK_Building_Materials_Storage">
+          <End Role="Storage" Type="Self.Storage" Multiplicity="1" />
+          <End Role="Building_Materials" Type="Self.Building_Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storage">
+              <PropertyRef Name="Storage_Number" />
+            </Principal>
+            <Dependent Role="Building_Materials">
+              <PropertyRef Name="Storage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApplicationDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Building_Materials" EntityType="Self.Building_Materials" />
+          <EntitySet Name="Storages" EntityType="Self.Storage" />
+          <AssociationSet Name="FK_Building_Materials_Storage" Association="Self.FK_Building_Materials_Storage">
+            <End Role="Storage" EntitySet="Storages" />
+            <End Role="Building_Materials" EntitySet="Building_Materials" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ApplicationDbContext">
+          <EntitySetMapping Name="Building_Materials">
+            <EntityTypeMapping TypeName="Model.Building_Materials">
+              <MappingFragment StoreEntitySet="Building_Materials">
+                <ScalarProperty Name="Material_Number" ColumnName="Material_Number" />
+                <ScalarProperty Name="Material_Name" ColumnName="Material_Name" />
+                <ScalarProperty Name="Measure_Unit" ColumnName="Measure_Unit" />
+                <ScalarProperty Name="Remains" ColumnName="Remains" />
+                <ScalarProperty Name="Storage" ColumnName="Storage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Storages">
+            <EntityTypeMapping TypeName="Model.Storage">
+              <MappingFragment StoreEntitySet="Storage">
+                <ScalarProperty Name="Storage_Number" ColumnName="Storage_Number" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Material_Type" ColumnName="Material_Type" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
