@@ -31,7 +31,18 @@ namespace DemoSpeed_Orlov.Pages
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var Entity = DGridStorage.SelectedItem as Storage;
+                ApplicationDbContext.GetContext().Storages.Remove(Entity);
+                ApplicationDbContext.GetContext().SaveChanges();
+                DGridStorage.ItemsSource = ApplicationDbContext.GetContext().Storages.ToList();
+                DGridStorage.Items.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Нельзя удалить склад!");
+            }
         }
 
         private void Change_Click(object sender, RoutedEventArgs e)

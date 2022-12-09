@@ -1,0 +1,37 @@
+﻿<Window x:Class="DemoSpeed_Orlov.Windows.EditMaterial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoSpeed_Orlov.Windows"
+        mc:Ignorable="d"
+        Title="Редактирование материалов" MinHeight="300" MinWidth="500" Width="500" Height="300">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20px">Изменение материала</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0 0 50 0">
+                    <TextBlock Style="{StaticResource InputName}" Text="Наименование" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Единица измерения" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Остаток" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Склад" />
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox x:Name="MaterialNameEdit" Style="{StaticResource InputBox}" ></TextBox>
+                    <TextBox x:Name="UnitOfMeasureBox" Style="{StaticResource InputBox}" Grid.Column="1" VerticalAlignment="Center" Margin="5 5">
+                    </TextBox>
+                    <TextBox x:Name="Remains" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox x:Name="WarehouseBox" Style="{StaticResource InputBox}" Grid.Column="1" VerticalAlignment="Center" Margin="5 5"></TextBox>
+                </StackPanel>
+            </Grid>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 20 0 0">
+                <Button x:Name="Edit_Material" Click="Edit_Click" FontSize="20" Style="{StaticResource NavButton}">Изменить</Button>
+                <Button x:Name="Refresh" Click="Delete_Click" FontSize="20" Style="{StaticResource NavButton}">Удалить</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

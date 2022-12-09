@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoSpeed_Orlov.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,8 @@ namespace DemoSpeed_Orlov
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AllData.NavigationService.Navigate(new Pages.Material_List());
+            Material_List_Window subWindow = new Material_List_Window();
+            subWindow.Show();
         }
     }
 }

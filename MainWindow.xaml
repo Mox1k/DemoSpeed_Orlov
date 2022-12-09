@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoSpeed_Orlov"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="800" Width="1280" Height="720">
+        Title="Складской учётик" MinHeight="450" MinWidth="800" Width="1280" Height="720">
     <Grid>
         <Grid.ColumnDefinitions>
 

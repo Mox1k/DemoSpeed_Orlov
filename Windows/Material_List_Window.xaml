@@ -1,13 +1,16 @@
-﻿<Page x:Class="DemoSpeed_Orlov.Pages.Material_List"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DemoSpeed_Orlov.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Material_List">
+﻿<Window x:Class="DemoSpeed_Orlov.Windows.Material_List_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoSpeed_Orlov.Windows"
+        mc:Ignorable="d"
+        Title="Список материалов" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
         <DataGrid x:Name="DGridStorage" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер материала" Binding="{Binding Material_Number}" Width="*"></DataGridTextColumn>
@@ -18,18 +21,12 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="Delete" Content="Удалить" Click="Delete_Click" Style="{StaticResource ResourceKey=GridButton}"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="Delete" Content="Изменить" Click="Change_Click" Style="{StaticResource ResourceKey=GridButton}"></Button>
+                            <Button x:Name="Change" Content="Изменить" Click="Change_Click" Style="{StaticResource ResourceKey=GridButton}"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="AddMaterial" Grid.Row="1" Style="{StaticResource NavButton}" FontWeight="Bold" FontSize="20" Click="AddMaterial_Click">Добавить материал</Button>
     </Grid>
-</Page>
+</Window>
